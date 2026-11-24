@@ -18,7 +18,7 @@ const tripConfig = {
   // Coloque seu número com 55 + DDD + número (apenas dígitos, sem espaços ou traços)
   whatsappNumber: "5548988791458",
   whatsappYesMessage:
-    "Eu topo! Pode confirmar meu lugar nessa viagem para Gramado! 🚗✨",
+    "Eu topo! Pode confirmar meu lugar nessa viagem para Gramado!",
   whatsappNoMessage:
     "Oi! Vi o convite para Gramado, mas dessa vez não vou conseguir ir.",
   message:
