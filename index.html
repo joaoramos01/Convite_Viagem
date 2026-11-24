@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convite Especial de Viagem</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="stage">
+    <!-- Etapa 1: Envelope interativo -->
+    <section id="envelope-screen" class="screen active">
+      <button id="open-envelope-btn" class="envelope" aria-label="Abrir convite">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body">
+          <span class="envelope-tag">CONVITE ESPECIAL</span>
+          <p class="envelope-title">Clique para abrir</p>
+          <span class="envelope-hint">Sua passagem aguarda ✈️</span>
+        </div>
+      </button>
+    </section>
+
+    <!-- Etapa 2: Cartão / Boarding Pass interativo -->
+    <section id="invite-screen" class="screen">
+      <article class="ticket">
+        <header class="ticket-header">
+          <span class="badge">BOARDING PASS</span>
+          <span class="flight-code">VOO • TRIP 2026</span>
+        </header>
+
+        <div class="route">
+          <div class="place">
+            <span class="label">ORIGEM</span>
+            <strong id="origin-text">Florianópolis</strong>
+          </div>
+          <div class="plane-divider">✈</div>
+          <div class="place align-right">
+            <span class="label">DESTINO</span>
+            <strong id="destination-text">Gramado</strong>
+          </div>
+        </div>
+
+        <div class="details">
+          <div>
+            <span class="label">DATA</span>
+            <p id="date-text">19 a 22 de Dezembro</p>
+          </div>
+          <div>
+            <span class="label">CONVIDADA</span>
+            <p id="guest-text">Larissa Fonseca</p>
+          </div>
+        </div>
+
+        <p id="message-text" class="invite-message">
+          Prepare as malas! Reservei esses dias para curtirmos juntos, 
+          descobrirmos lugares incríveis em Gramado e vivermos momentos únicos. 
+          Bora embarcar nessa e realizar o seu sonho de ir para lá?
+        </p>
+
+        <div class="actions" id="action-buttons">
+          <button id="yes-btn" class="btn btn-yes">Bora! Eu topo ✨</button>
+          <button id="no-btn" class="btn btn-no">Não posso ir</button>
+        </div>
+
+        <div id="confirmed-box" class="confirmed-box hidden">
+          <h3>Partiu! Assento confirmado 🎉</h3>
+          <p>Já estou contando os dias para essa viagem com você.</p>
+          <button id="reset-btn" class="btn btn-ghost">Ver convite novamente</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <canvas id="confetti-canvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
