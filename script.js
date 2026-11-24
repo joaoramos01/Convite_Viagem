@@ -10,11 +10,13 @@ const resetBtn = document.getElementById("reset-btn");
 // Personalize os dados da viagem aqui se quiser:
 const tripConfig = {
   origin: "Florianópolis",
-  destination: "Rio de Janeiro",
-  date: "18 a 22 de Dezembro",
-  guest: "Você",
+  destination: "Gramado",
+  date: "19 a 22 de Dezembro",
+  guest: "Larissa Fonseca",
+  // Data de início da viagem (dia 19 de dezembro de 2026 às 00:00)
+  targetDate: "2026-12-19T00:00:00",
   message:
-    "Prepare as malas! Separei esses dias para curtirmos juntos, conhecer lugares novos e criar memórias incríveis. Topa embarcar nessa?"
+    "Prepare as malas! Separei esses dias para curtirmos juntos, conhecermos lugares incríveis em Gramado e criarmos memórias inesquecíveis. Topa embarcar nessa para realizar o seu sonho de ir para lá?"
 };
 
 function applyTripConfig() {
@@ -63,9 +65,50 @@ resetBtn.addEventListener("click", () => {
   noBtn.style.transform = "translate(0, 0)";
 });
 
+// Contador regressivo até o dia 19
+function startCountdown() {
+  const target = new Date(tripConfig.targetDate).getTime();
+  const countdownEl = document.getElementById("countdown");
+  const daysEl = document.getElementById("cd-days");
+  const hoursEl = document.getElementById("cd-hours");
+  const minutesEl = document.getElementById("cd-minutes");
+  const secondsEl = document.getElementById("cd-seconds");
+
+  if (!countdownEl || !daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+  function update() {
+    const now = Date.now();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      countdownEl.innerHTML =
+        '<p style="grid-column: 1 / -1; color: #4ade80; font-weight: 700;">Chegou o grande dia! Boa viagem ✈️</p>';
+      clearInterval(timer);
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    daysEl.textContent = String(days).padStart(2, "0");
+    hoursEl.textContent = String(hours).padStart(2, "0");
+    minutesEl.textContent = String(minutes).padStart(2, "0");
+    secondsEl.textContent = String(seconds).padStart(2, "0");
+  }
+
+  update();
+  const timer = setInterval(update, 1000);
+}
+
+startCountdown();
+
 // Efeito de confete no canvas
 function startConfetti() {
   const canvas = document.getElementById("confetti-canvas");
+  if (!canvas) return;
+
   const ctx = canvas.getContext("2d");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;

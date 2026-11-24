@@ -3,8 +3,8 @@
   --bg-card: #1e293b;
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
-  --accent: #f97316;
-  --accent-hover: #ea580c;
+  --accent: #f9c816;
+  --accent-hover: #f9c816;
   --border: rgba(255, 255, 255, 0.12);
 }
 
@@ -269,4 +269,44 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: 1;
+}
+
+/* Contador Regressivo */
+.countdown-box {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(249, 115, 22, 0.25);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.time-unit {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-unit strong {
+  font-size: 1.2rem;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.time-unit span {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 2px;
 }
